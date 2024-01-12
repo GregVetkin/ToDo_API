@@ -9,8 +9,8 @@
   {
     "id": 3,
     "task": {
-      "summary": "new update",
-      "priority": 2
+      "summary": "New summary",
+      "priority": 0
     }
   }
 ]
