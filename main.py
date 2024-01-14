@@ -4,13 +4,13 @@ from typing import Optional
 
 from fastapi.encoders import jsonable_encoder
 from model.model import Task, TaskList
-import model.taskman_json as taskman
-
+#import model.taskman_json as taskman
+import model.taskman_pgsql as taskman
 
 app = FastAPI()
 
 
-@app.get("/api/tasks")
+@app.get("/api/tasks", tags=["Tasks"])
 async def get_tasks():
     """
     TODO
@@ -19,7 +19,7 @@ async def get_tasks():
     return await taskman.get_tasks()
 
 
-@app.get("/api/tasks/{id}")
+@app.get("/api/tasks/{id}", tags=["Tasks"])
 async def get_task(id: int):
     """
     TODO
@@ -28,7 +28,7 @@ async def get_task(id: int):
     return await taskman.get_tasks(id)
 
 
-@app.post("/api/tasks/create")
+@app.post("/api/tasks/create", tags=["Tasks"])
 async def create_task(task: Task):
     """
     TODO
@@ -39,7 +39,7 @@ async def create_task(task: Task):
     return await taskman.get_tasks(id)
 
 
-@app.put("/api/tasks/{id}/update")
+@app.put("/api/tasks/{id}/update", tags=["Tasks"])
 async def update_task(id: int, task: Task):
     """
     TODO
@@ -50,7 +50,7 @@ async def update_task(id: int, task: Task):
     return await taskman.get_tasks(id)
 
 
-@app.delete("/api/tasks/{id}/delete")
+@app.delete("/api/tasks/{id}/delete", tags=["Tasks"])
 async def delete_task(id: int):
     """
     TODO
